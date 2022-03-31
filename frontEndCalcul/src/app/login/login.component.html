@@ -1,0 +1,41 @@
+<html style ="background-color: #1c606a;">
+
+
+<div class="col-xl-8" style="margin-left: auto ; margin-right: auto ; margin-bottom: auto; margin-top: auto; padding-top: 8%; padding-bottom: 5%; padding-left: 16%; padding-right: 16%"  >
+
+  <div class="card mb-4" style="border-radius: 16px">
+    <div class="card-header" ><h3 style="text-align: center">Connexion </h3></div>
+    <div class="card-body" >
+
+
+      <form [formGroup]="loginForm" (ngSubmit)="authentification()" >
+        <div class="form-group" >
+          <label for="login">Email</label>
+          <input type="text" class="form-control" formControlName="login" id="login" style="border-radius: 16px;"
+                 [ngClass]="{'is-invalid':login&&login.errors && login.touched}">
+          <div *ngIf="login&&login.hasError('required')"
+               class="invalid-feedback">
+            L'email est Obligatoire*
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="motPasse">Mot de passe</label>
+          <input type="motPasse" class="form-control" formControlName="motPasse" id="motPasse" style="border-radius: 16px;"
+                 [ngClass]="{'is-invalid':motPasse&&motPasse.errors && motPasse.touched}">
+          <div *ngIf="motPasse&&motPasse.hasError('required')"
+               class="invalid-feedback">
+            Le mot de passe est Obligatoire*
+          </div>
+
+        </div>
+        <button class="btn btn-primary btn-user btn-block" style="border-radius: 16px;" >Login</button>
+
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
+
+</html>

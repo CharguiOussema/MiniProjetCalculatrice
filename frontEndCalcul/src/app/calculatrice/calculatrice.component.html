@@ -1,0 +1,80 @@
+<div class=" card nb-4" xmlns="http://www.w3.org/1999/html">
+  <div class="card-header"><h3 style="text-align: center">Calculatrice</h3></div>
+  <div class="card-body">
+
+  <form [formGroup]="calculForm" (ngSubmit)="calculatrice()"  style="align-content: center">
+
+
+
+
+    <div class="form-row row">
+    <div class="form-group col-md-6 col"><h3>hello {{this.nom}}</h3></div>
+    <div class="form-group col-md-3 col"></div>
+    <div class="form-group col-md-3 col"><button type="button" (click)="deconnexion()" class="btn btn-info btn-user btn-block" style="border-radius: 16px; width: 70%" >Déconnexion</button></div>
+  </div>
+    <div class="form-row row">
+      <div class="form-group col-md-5 col">
+    <label for="valeur1" class="form-label"></label>
+        <input type="number" class="form-control"  formControlName="valeur1"  id="valeur1"
+               [ngClass]="{'is-invalid':valeur1&&valeur1.errors && valeur1.touched}">
+        <div *ngIf="valeur1&&valeur1.hasError('required')"
+             class="invalid-feedback">
+          ce champ est Obligatoire*
+        </div>
+      </div>
+      <div class="form-group col-md-2 col">
+        <label for="op" class="form-label"></label>
+        <input type="text" class="form-control" formControlName="op"   id="op" [value]="ope" readonly style="font-size: large" >
+
+      </div>
+      <div class="form-group col-md-5 col">
+        <label for="valeur2" class="form-label"></label>
+        <input type="number" class="form-control" formControlName="valeur2"   id="valeur2"
+               [ngClass]="{'is-invalid':valeur2&&valeur2.errors && valeur2.touched}">
+        <div *ngIf="valeur2&&valeur2.hasError('required')"
+             class="invalid-feedback">
+          ce champ est Obligatoire*
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-row row">
+      <div class="form-group col-md-3 col">
+        <!--<button class="btn btn-primary btn-user btn-block" style="border-radius: 16px; width: 100%" >+</button>-->
+      <img src="../../assets/iconeCalcul/addition.png" style="width: 50%; height: 50%; cursor: pointer" (click)="addition()">
+      </div>
+      <div class="form-group col-md-3 col">
+        <img src="assets/iconeCalcul/soustraction.png" style="width: 50%; height: 50%; cursor: pointer" (click)="soustration()">
+      </div>
+      <div class="form-group col-md-3 col">
+        <img src="assets/iconeCalcul/div.png" style="width: 50%; height: 50%; cursor: pointer" (click)="division()">
+      </div>
+      <div class="form-group col-md-3 col">
+        <img src="assets/iconeCalcul/multiplication.png" style="width: 50%; height: 50%; cursor: pointer" (click)="multiplication()">
+      </div>
+
+    </div>
+    <br>
+    <div class="form-row row">
+      <div class="form-group col-md-4 col"></div>
+      <div class="form-group col-md-4 col">
+        <label for="res" class="form-label"></label>
+        <input type="number" class="form-control" formControlName="res"   id="res" [value]="resultat" readonly style="font-size: large" >
+
+      </div>
+      <div class="form-group col-md-4 col"></div>
+    </div>
+    <br>
+    <div class="form-row row">
+      <div class="form-group col-md-4 col"></div>
+      <div class="form-group col-md-4 col"><button type="submit" ><img  src="assets/iconeCalcul/egal.png" style="width: 50%; height: 50%"> </button></div>
+      <div class="form-group col-md-4 col"></div>
+    </div>
+
+
+
+
+  </form>
+  </div>
+</div>
+
